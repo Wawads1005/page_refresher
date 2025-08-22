@@ -1,0 +1,21 @@
+{
+  "name": "refresher",
+  "version": "1.0.0",
+  "description": "A simple chrome extension that automatically refreshes tabs at specified intervals.",
+  "scripts": {},
+  "keywords": [
+    "Chrome Extension",
+    "Auto Refresh",
+    "Tab Reloader",
+    "Page Refresher",
+    "Automatic Reload"
+  ],
+  "author": "Jan Joshua De Guzman",
+  "license": "MIT",
+  "packageManager": "pnpm@10.15.0",
+  "devDependencies": {
+    "@types/chrome": "^0.1.4",
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2"
+  }
+}

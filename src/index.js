@@ -1,10 +1,16 @@
+// @ts-check
+
 const buttonNode = document.querySelector("button");
 const resetButtonNode = document.querySelector("#reset");
 const inputNode = document.querySelector("input");
 
+const DEFAULT_INTERVAL = 5; // Default interval in seconds
+
 document.addEventListener("DOMContentLoaded", () => {
-  buttonNode.addEventListener("click", async () => {
-    const intervalValue = parseInt(inputNode.value, 10);
+  buttonNode?.addEventListener("click", async () => {
+    const intervalValue = inputNode
+      ? parseInt(inputNode?.value, 10)
+      : DEFAULT_INTERVAL;
 
     if (isNaN(intervalValue) || intervalValue <= 0) {
       alert("Please enter a valid positive number for the interval.");
@@ -25,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  resetButtonNode.addEventListener("click", async () => {
+  resetButtonNode?.addEventListener("click", async () => {
     const [tab] = await chrome.tabs.query({
       active: true,
       currentWindow: true,
