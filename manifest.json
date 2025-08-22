@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Refresher",
+  "description": "A Chrome extension to refresh pages in setted interval with a single click.",
+  "version": "1.0.0",
+  "background": {
+    "service_worker": "./src/background.js"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"]
+}
