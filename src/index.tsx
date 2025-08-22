@@ -64,7 +64,11 @@ function App() {
             <FormItem>
               <FormLabel>Interval</FormLabel>
               <FormControl>
-                <Input {...field} type="number" />
+                <Input
+                  {...field}
+                  onChange={(e) => field.onChange(parseInt(e.target.value))}
+                  type="number"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

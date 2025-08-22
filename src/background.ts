@@ -29,4 +29,6 @@ chrome.runtime.onMessage.addListener(async (message: RefresherMessageModel) => {
       break;
     }
   }
+
+  return true;
 });
