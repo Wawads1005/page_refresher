@@ -4,7 +4,8 @@
   "description": "A Chrome extension to refresh pages in setted interval with a single click.",
   "version": "1.0.0",
   "background": {
-    "service_worker": "./src/background.js"
+    "service_worker": "./src/background.js",
+    "type": "module"
   },
   "action": {
     "default_popup": "index.html"

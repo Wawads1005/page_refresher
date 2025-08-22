@@ -1,10 +1,22 @@
 // @ts-check
 
+import { keys } from "./shared.js";
+
+/**
+ * @typedef {Object} Message
+ * @property {string} action - The action to perform (start or stop).
+ * @property {number} tabId - The ID of the tab to operate on.
+ * @property {number} interval - The interval in seconds for the start action.
+ */
+
 const intervals = {};
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === "start") {
-    const { tabId, interval } = message;
+chrome.runtime.onMessage.addListener((message) => {
+  /** @type {Message} */
+  const mssg = message;
+
+  if (mssg.action === keys.start) {
+    const { tabId, interval } = mssg;
 
     if (intervals[tabId]) {
       clearInterval(intervals[tabId]);
@@ -16,8 +28,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         func: () => window.location.reload(),
       });
     }, interval * 1000);
-  } else if (message.action === "stop") {
-    const { tabId } = message;
+  } else if (mssg.action === keys.stop) {
+    const { tabId } = mssg;
 
     if (intervals[tabId]) {
       clearInterval(intervals[tabId]);

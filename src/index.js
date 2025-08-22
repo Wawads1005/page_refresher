@@ -1,5 +1,7 @@
 // @ts-check
 
+import { keys } from "./shared.js";
+
 const buttonNode = document.querySelector("button");
 const resetButtonNode = document.querySelector("#reset");
 const inputNode = document.querySelector("input");
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!tab) return;
 
     chrome.runtime.sendMessage({
-      action: "start",
+      action: keys.start,
       tabId: tab.id,
       interval: intervalValue,
     });
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!tab) return;
 
     chrome.runtime.sendMessage({
-      action: "stop",
+      action: keys.stop,
       tabId: tab.id,
     });
   });
