@@ -18,7 +18,7 @@ const refresherMessageModel = z
   })
   .refine(
     (input) => (input.action === "start" ? input.interval !== undefined : true),
-    { message: "Interval is required for start action" }
+    { message: "Interval is required for start action" },
   );
 
 export type { RefresherFormModel, RefresherMessageModel };

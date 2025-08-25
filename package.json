@@ -4,7 +4,8 @@
   "description": "A simple chrome extension that automatically refreshes tabs at specified intervals.",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "format": "prettier --write **/*.{html,js,jsx,ts,tsx,css,json}"
   },
   "keywords": [
     "Chrome Extension",
