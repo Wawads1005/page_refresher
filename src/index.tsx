@@ -2,6 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@/styles/globals.css";
+import useSendMessageMutation from "@/hooks/chrome/use-send-message-mutation";
+import useCurrentTabQuery from "@/hooks/chrome/use-current-tab-query";
 import {
   Form,
   FormControl,
@@ -9,12 +11,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "./components/ui/form";
-import useRefresherForm from "./hooks/use-refresher-form";
-import { Input } from "./components/ui/input";
-import { Button } from "./components/ui/button";
-import useSendMessageMutation from "./hooks/chrome/use-send-message-mutation";
-import useCurrentTabQuery from "./hooks/chrome/use-current-tab-query";
+} from "@/components/ui/form";
+import useRefresherForm from "@/hooks/use-refresher-form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const rootNode = document.getElementById("root");
 const root = ReactDOM.createRoot(rootNode!);
@@ -42,13 +42,13 @@ function App() {
   return (
     <Form {...refresherForm}>
       <form
-        className=" grid gap-2"
+        className="grid gap-2"
         onSubmit={refresherForm.handleSubmit((input) =>
           startMessageMutation.mutate({
             action: "start",
             tabId: currentTabQuery.data?.id!,
             interval: input.interval,
-          })
+          }),
         )}
         onReset={() =>
           stopMessageMutation.mutate({
@@ -100,5 +100,5 @@ root.render(
         <App />
       </main>
     </QueryClientProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
